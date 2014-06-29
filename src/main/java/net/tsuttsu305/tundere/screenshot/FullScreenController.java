@@ -96,9 +96,7 @@ public class FullScreenController implements Initializable {
                     stage.hide();
 
                     //デスクトップ撮影用処理
-                    Robot robot = new Robot();
-                    java.awt.Rectangle size = new java.awt.Rectangle((int) sx, (int) sy, (int) ex - (int) sx, (int) ey - (int) sy);
-                    BufferedImage bufferedImage = robot.createScreenCapture(size);
+                    BufferedImage bufferedImage = Camera.createDesktopCap((int) sx, (int) sy, (int) ex - (int) sx, (int) ey - (int) sy);
                     File f = File.createTempFile("ScreenShot", ".png");
                     ImageIO.write(bufferedImage, "png", f);
 
