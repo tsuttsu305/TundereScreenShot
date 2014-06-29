@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import net.tsuttsu305.tundere.screenshot.upload.WebUpload;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -100,14 +101,13 @@ public class FullScreenController implements Initializable {
                     File f = File.createTempFile("ScreenShot", ".png");
                     ImageIO.write(bufferedImage, "png", f);
 
-                    //Fileをクリップボードにコピーするための処理
+                    WebUpload web = new WebUpload();
+                    String s = web.uploadImage(f);
+
                     //Systemのクリップボードを取得
                     Clipboard cp = Clipboard.getSystemClipboard();
                     ClipboardContent cc = new ClipboardContent();
-                    ArrayList<File> af = new ArrayList<>();
-                    af.add(f);
-                    //クリップボードContentにFileリストを登録
-                    cc.putFiles(af);
+                    cc.putString(s);
                     //クリップボードに反映
                     cp.setContent(cc);
                 } catch (Exception e) {

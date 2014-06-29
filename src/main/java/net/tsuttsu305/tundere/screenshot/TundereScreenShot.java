@@ -13,10 +13,16 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import net.tsuttsu305.tundere.screenshot.config.Config;
+
+import java.io.IOException;
+import java.util.logging.Logger;
 
 public class TundereScreenShot extends Application {
+    public static final Logger LOGGER = Logger.getLogger(TundereScreenShot.class.getName());
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+         Config.getInstance().load();
         launch(args);
     }
 
