@@ -52,7 +52,7 @@
                 echo 'http://'.$_SERVER['SERVER_NAME'].'/img/'.$hash.image_type_to_extension($type);
                 
             }catch (RuntimeException $e){
-                echo $e;
+                #echo $e;
             }
         }
     }
